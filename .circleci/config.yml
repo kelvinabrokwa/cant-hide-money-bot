@@ -1,0 +1,23 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@0.2.1
+
+jobs:
+  build-and-test:
+    executor: python/default
+    steps:
+      - checkout
+      - run:
+          command: |
+            pip install -e .
+            pytest -s test --junit-xml=test_results.xml
+            mypy cant_hide_money_bot
+          name: Test
+      - store_test_results:
+          path: test_results.xml
+
+workflows:
+  main:
+    jobs:
+      - build-and-test
