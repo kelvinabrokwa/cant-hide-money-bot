@@ -1,0 +1,14 @@
+[Unit]
+Description=Cant Hide Money Bot Discord Server
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=ubuntu
+ExecStart=/opt/apps/pyenv/bin/python -m cant_hide_money_bot.server --mode prod
+Environment="DISCORD_TOKEN=XXXX"
+Environment="DEV_GUILD_ID=XXXX"
+
+[Install]
+WantedBy=multi-user.target

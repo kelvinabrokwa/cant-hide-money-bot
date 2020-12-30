@@ -1,0 +1,6 @@
+# Send a message to dev on Sundays to make sure its working
+30 9 * * SUN /opt/apps/reporter.sh dev
+
+# Actual reports
+30 9 * * MON /opt/apps/reporter.sh prod
+30 9 * * FRI /opt/apps/reporter.sh prod
